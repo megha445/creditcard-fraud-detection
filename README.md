@@ -1,55 +1,44 @@
-🕵️‍♂️ Credit Card Fraud Detection – Machine Learning Project
+# 🕵️‍♂️ Credit Card Fraud Detection – Machine Learning Project
 
-This project builds an intelligent system to detect fraudulent credit card transactions using machine learning.
-Fraud detection is a classic highly imbalanced classification problem, where fraudulent cases make up less than 0.2% of transactions — making standard models ineffective without special treatment.
+This project builds an intelligent system to detect fraudulent credit card transactions using machine learning. Fraud detection is a classic highly imbalanced classification problem, where fraudulent cases make up less than 0.2% of transactions — making standard models ineffective without special treatment.
 
-📌 Dataset
+## 📌 Dataset
 
-Dataset used: Credit Card Fraud Detection
+- **Dataset used**: Credit Card Fraud Detection
+- **Source**: [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+- **Records**: 284,807 transactions
+- **Fraud cases**: 492 (~0.17%)
 
-Source: Kaggle
+> **Note**: Due to licensing constraints, the dataset is not included in this repository. You can download it from Kaggle and place `creditcard.csv` inside the `data/` directory.
 
-Records: 284,807 transactions
-
-Fraud cases: 492 (~0.17%)
-
-Due to licensing constraints, the dataset is not included in this repository.
-You can download it from Kaggle and place creditcard.csv inside:
-
-data/creditcard.csv
-
-🎯 Objective
+## 🎯 Objective
 
 Build a model that can:
 
-✔ Detect fraudulent transactions
-✔ Handle severe class imbalance
-✔ Achieve high recall on fraud cases and strong ROC–AUC
+- ✔️ Detect fraudulent transactions
+- ✔️ Handle severe class imbalance
+- ✔️ Achieve high recall on fraud cases and strong ROC–AUC
 
-🧠 Machine Learning Approach
-🔹 Techniques Used
+## 🧠 Machine Learning Approach
 
-Random Forest (Supervised Learning)
+### 🔹 Techniques Used
 
-SMOTE (Synthetic Minority Oversampling Technique)
+- **Random Forest** (Supervised Learning)
+- **SMOTE** (Synthetic Minority Oversampling Technique)
+- Train–test split with stratification
+- Scaling numeric features
+- Performance evaluation via:
+  - Confusion Matrix
+  - Precision, Recall, F1-score
+  - ROC–AUC
 
-Train–test split with stratification
-
-Scaling numeric features
-
-Performance evaluation via:
-
-Confusion Matrix
-
-Precision, Recall, F1-score
-
-ROC–AUC
-
-🔹 Why SMOTE?
+### 🔹 Why SMOTE?
 
 Because fraud cases are extremely rare — oversampling helps prevent models from ignoring minority classes.
 
-📂 Project Structure
+## 📂 Project Structure
+
+```
 creditcard_fraud/
 ├── data/
 │   └── creditcard.csv          # dataset (not included in repo)
@@ -60,72 +49,79 @@ creditcard_fraud/
 ├── run_supervised.py           # entry point for supervised ML pipeline
 ├── run_isolation.py            # entry point for anomaly detection pipeline
 └── requirements.txt            # required libraries
+```
 
-📊 Results (Supervised Model)
+## 📊 Results (Supervised Model)
 
 After training using SMOTE + RandomForest, results were approximately:
 
-Metric	Fraud Class (Class 1)
-Precision	~0.86
-Recall	~0.84
-F1-score	~0.85
+| Metric | Fraud Class (Class 1) |
+|--------|----------------------|
+| Precision | ~0.86 |
+| Recall | ~0.84 |
+| F1-score | ~0.85 |
 
-Overall Accuracy: ~99.95%
+- **Overall Accuracy**: ~99.95%
+- **ROC–AUC Score**: ~0.97
 
-ROC–AUC Score: ~0.97
+### 📌 Interpretation
 
-📌 Interpretation:
-✔ The model correctly detects ~84% of fraud cases — excellent performance for imbalanced fraud detection.
-✔ False positives remain very low.
+- ✔️ The model correctly detects ~84% of fraud cases — excellent performance for imbalanced fraud detection.
+- ✔️ False positives remain very low.
 
-🚀 How to Run the Project
-1️⃣ Install dependencies
+## 🚀 How to Run the Project
+
+### 1️⃣ Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-2️⃣ Add dataset
+### 2️⃣ Add dataset
 
 Place the dataset file inside:
 
+```
 data/creditcard.csv
+```
 
-3️⃣ Run supervised fraud detection pipeline
+### 3️⃣ Run supervised fraud detection pipeline
+
+```bash
 python run_supervised.py
+```
 
-4️⃣ Run anomaly detection pipeline (optional)
+### 4️⃣ Run anomaly detection pipeline (optional)
+
+```bash
 python run_isolation.py
+```
 
-✨ Potential Improvements
+## ✨ Potential Improvements
 
-Hyperparameter tuning (GridSearch / RandomizedSearch)
+- Hyperparameter tuning (GridSearch / RandomizedSearch)
+- Try XGBoost / LightGBM
+- SHAP explainability
+- Deploy as a web app (Flask / Streamlit)
+- REST API service for transaction scoring
 
-Try XGBoost / LightGBM
+## 📌 Tools & Libraries
 
-SHAP explainability
+- **Python**
+- **Pandas**, **NumPy**
+- **Scikit-learn**
+- **Imbalanced-learn**
+- **Matplotlib**, **Seaborn**
 
-Deploy as a web app (Flask / Streamlit)
+## 📜 License & Dataset Notice
 
-REST API service for transaction scoring
+Dataset belongs to original authors (Kaggle/UCI repository). It is excluded from this repository; users must download it manually.
 
-📌 Tools & Libraries
+## 🙌 Author
 
-Python
-
-Pandas, NumPy
-
-Scikit-learn
-
-Imbalanced-learn
-
-Matplotlib, Seaborn
-
-📜 License & Dataset Notice
-
-Dataset belongs to original authors (Kaggle/UCI repository).
-It is excluded from this repository; users must download it manually.
-
-🙌 Author
-
-Megha Reddy
+**Megha Reddy**  
 Computer Science Engineering Student — Machine Learning Enthusiast
 
-💡 Feel free to ⭐ star the repo if you found it helpful!
+---
+
+💡 **Feel free to ⭐ star the repo if you found it helpful!**
